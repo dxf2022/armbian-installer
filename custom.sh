@@ -49,8 +49,9 @@ case $extension in
 esac
 
 # 统一重命名
-if [ -n "$final_name" ]; then
-  mv "$final_name" "imm/custom.img"
+if [ -n "$final_name" ] && [ "$final_name" != "imm/custom.img" ]; then
+    mv "$final_name" "imm/custom.img"
+fi
 else
   echo "❌ ZIP 文件中未找到 .img 文件"
   exit 1
