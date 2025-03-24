@@ -51,12 +51,10 @@ esac
 # 统一重命名
 if [ -n "$final_name" ] && [ "$final_name" != "imm/custom.img" ]; then
     mv "$final_name" "imm/custom.img"
+elif [ ! -f "imm/custom.img" ]; then
+    echo "❌ ZIP 文件不存在: .img 文件"
+    exit 1
 fi
-else
-  echo "❌ ZIP 文件中未找到 .img 文件"
-  exit 1
-fi
-
 
 # 检查最终文件
 if [ -f "imm/custom.img" ]; then
